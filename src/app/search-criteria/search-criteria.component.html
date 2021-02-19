@@ -1,0 +1,23 @@
+<form #searchForm="ngForm" (ngSubmit)="emitSubmitEvent(searchForm)">
+  <input
+    class="input-bar"
+    type="text"
+    name="searchTerm"
+    id="searchTerm"
+    placeholder="Enter a search term"
+    ngModel
+  />
+  <label for="diet">Diet Preferences:</label>
+  <select name="diet" id="diet" ngModel>
+    <option value="balanced">Balanced</option>
+    <option value="high-protein">High Protein</option>
+    <option value="low-fat">Low Fat</option>
+    <option value="low-carb">Low Carb</option>
+  </select>
+  <label for="health">Health Preferences:</label>
+  <select name="health" id="health" ngModel>
+    <option value="vegetarian">Vegetarian</option>
+    <option value="vegan">Vegan</option>
+  </select>
+  <button>Submit</button>
+</form>

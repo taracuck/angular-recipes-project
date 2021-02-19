@@ -1,0 +1,27 @@
+<div class="recipe-div">
+  <li class="list-item">
+    <h2 class="list-item-title">{{ recipeRef.recipe.label }}</h2>
+    <img class="image" src="{{ recipeRef.recipe.image }}" />
+    <div class="recipe-options">
+      <i class="fas fa-heart"></i>
+      <p>Calories: {{ recipeCalories }}</p>
+      <i class="fas fa-utensils" (click)="setShowRecipe()"></i>
+    </div>
+  </li>
+</div>
+<div class="popUp" *ngIf="showRecipe">
+  <div class="information-container">
+    <ul>
+      <h3>Diet Labels:</h3>
+      <li *ngFor="let recipeLabel of recipeLabels">{{ recipeLabel }}</li>
+      <h3>Ingredients:</h3>
+      <li *ngFor="let ingredient of recipeIngredients">
+        {{ ingredient.text }}
+      </li>
+      <h3>Source:</h3>
+      <li>
+        <a href="{{ recipeRef.recipe.url }}">{{ recipeRef.recipe.url }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
