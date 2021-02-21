@@ -6,6 +6,7 @@
   <app-recipe
     *ngFor="let recipe of recipes?.hits"
     [recipeRef]="recipe"
+    (favoriteEvent)="toggleFavorite($event)"
   ></app-recipe>
 </ul>
 <app-footer></app-footer>
