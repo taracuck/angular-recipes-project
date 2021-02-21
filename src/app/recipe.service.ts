@@ -10,6 +10,7 @@ export class RecipeService {
   appKey: string = 'dcb627cfa91673ed87b104d8e01160d8';
   limit: string = '50';
   recipeSearchUrl: string = 'https://api.edamam.com/search';
+  favorites: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -30,5 +31,25 @@ export class RecipeService {
     return this.http.get(this.recipeSearchUrl, {
       params: params,
     });
+  };
+  addFavorite = (recipe: any): void => {
+    this.favorites.push(recipe);
+    console.log(this.favorites);
+  };
+  getFavorites = (): any[] => {
+    return this.favorites;
+  };
+  checkIfFavorite = (recipe: any): boolean => {
+    return this.favorites.some((item) => {
+      return item.recipe.label === recipe.recipe.label;
+    });
+  };
+
+  removeFavorite = (recipe: any): void => {
+    let index = this.favorites.findIndex((item) => {
+      return item.recipe.label === recipe.recipe.label;
+    });
+    this.favorites.splice(index, 1);
+    console.log(this.favorites);
   };
 }

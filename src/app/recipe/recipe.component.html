@@ -3,7 +3,11 @@
     <h2 class="list-item-title">{{ recipeRef.recipe.label }}</h2>
     <img class="image" src="{{ recipeRef.recipe.image }}" />
     <div class="recipe-options">
-      <i class="fas fa-heart"></i>
+      <i
+        class="fas fa-heart"
+        (click)="sendFavoriteEvent(recipeRef)"
+        [ngClass]="{ red: checkIfFavorite(recipeRef) }"
+      ></i>
       <p>Calories: {{ recipeCalories }}</p>
       <i class="fas fa-utensils" (click)="setShowRecipe()"></i>
     </div>

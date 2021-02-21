@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe',
@@ -11,8 +12,9 @@ export class RecipeComponent implements OnInit {
   recipeLabels!: string[];
   recipeIngredients!: any[];
   showRecipe: boolean = false;
+  @Output() favoriteEvent = new EventEmitter<any>();
 
-  constructor() {}
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
     this.getCalories();
@@ -34,5 +36,11 @@ export class RecipeComponent implements OnInit {
 
   setShowRecipe = (): void => {
     this.showRecipe = !this.showRecipe;
+  };
+  sendFavoriteEvent = (recipe: any): void => {
+    this.favoriteEvent.emit(recipe);
+  };
+  checkIfFavorite = (recipe: any): boolean => {
+    return this.recipeService.checkIfFavorite(recipe);
   };
 }

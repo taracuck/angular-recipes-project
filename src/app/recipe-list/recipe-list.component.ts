@@ -22,4 +22,12 @@ export class RecipeListComponent implements OnInit {
       console.log(response);
     });
   };
+  toggleFavorite = (favorite: any): void => {
+    console.log(favorite);
+    if (this.recipeService.checkIfFavorite(favorite)) {
+      this.recipeService.removeFavorite(favorite);
+    } else {
+      this.recipeService.addFavorite(favorite);
+    }
+  };
 }
