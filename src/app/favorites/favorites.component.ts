@@ -34,57 +34,87 @@ export class FavoritesComponent implements OnInit {
   };
 
   filterFavorites = (): any[] => {
-    // console.log(formObject);
-    console.log(this.favorites);
-
     if (this.filterObject === undefined) {
       return this.favorites;
     }
-
     return this.favorites.filter((item) => {
       let dietMatches!: boolean;
       let healthMatches!: boolean;
-      // dietMatches = this.favorites.some((item) => {
-      if (item.recipe.dietLabels.length !== 0) {
-        for (let label of item.recipe.dietLabels) {
+      if (
+        item.recipe.dietLabels.length !== 0 &&
+        item.recipe.dietLabels !== null
+      ) {
+        dietMatches = item.recipe.dietLabels.some((label: any) => {
           console.log(label);
           console.log(this.filterObject.diet);
-          if (label === this.filterObject.diet) {
-            dietMatches = true;
-          } else {
-            dietMatches = false;
-          }
+          return label.toLowerCase() === this.filterObject.diet.toLowerCase();
+        });
+      }
+      if (
+        item.recipe.healthLabels.length !== 0 &&
+        item.recipe.healthLabels !== null
+      ) {
+        healthMatches = item.recipe.healthLabels.some((item: any) => {
+          return item.toLowerCase() === this.filterObject.health.toLowerCase();
+        });
+      }
+      // if there is a search term
+      if (this.filterObject.searchTerm.length > 0) {
+        // if both selects have been chosen
+        console.log('search term entered');
+        if (this.filterObject.diet !== '' && this.filterObject.health !== '') {
+          console.log('both selects chosen');
+          return (
+            item.recipe.label.includes(this.filterObject.searchTerm) &&
+            dietMatches &&
+            healthMatches
+          );
+          // if only diet select has been chosen
+        } else if (
+          this.filterObject.diet !== '' &&
+          this.filterObject.health === ''
+        ) {
+          console.log('only diet select chosen');
+          return (
+            item.recipe.label.includes(this.filterObject.searchTerm) &&
+            dietMatches
+          );
+          // if only health select has been chosen
+        } else if (
+          this.filterObject.diet === '' &&
+          this.filterObject.health !== ''
+        ) {
+          console.log('only health select chosen');
+          return (
+            item.recipe.label.includes(this.filterObject.searchTerm) &&
+            healthMatches
+          );
+        } else {
+          return item.recipe.label.includes(this.filterObject.searchTerm);
+        }
+        // no search term entered
+      } else {
+        console.log('search term not entered');
+        // if both selects have been chosen
+        if (this.filterObject.diet !== '' && this.filterObject.health !== '') {
+          console.log('both selects chosen');
+          return dietMatches && healthMatches;
+          // if only diet select has been chosen
+        } else if (
+          this.filterObject.diet !== '' &&
+          this.filterObject.health === ''
+        ) {
+          console.log('only diet select chosen');
+          return dietMatches;
+          // if only health select has been chosen
+        } else if (
+          this.filterObject.diet === '' &&
+          this.filterObject.health !== ''
+        ) {
+          console.log('only health select chosen');
+          return healthMatches;
         }
       }
-      if (item.recipe.healthLabels.length !== 0) {
-        for (let label of item.recipe.healthLabels) {
-          console.log(label);
-          console.log(this.filterObject.health);
-          if (label === this.filterObject.health) {
-            healthMatches = true;
-          } else {
-            healthMatches = false;
-          }
-        }
-      }
-      console.log(healthMatches);
-
-      return (
-        item.recipe.label.includes(this.filterObject.searchTerm) ||
-        dietMatches ||
-        healthMatches
-      );
     });
   };
-
-  // this.recipeService.getRecipes(formObject).subscribe((response: any) => {
-  //   this.filteredRecipes = response;
-  //   console.log(response);
-  // });
-  // console.log(this.filteredRecipes);
-  // this.favorites = this.filteredRecipes.filter((item): any => {
-  //   for (let favorite of this.favorites) {
-  //     return favorite.recipe.label.includes(item.recipe.label);
-  //   }
-  // });
 }

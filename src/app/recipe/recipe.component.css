@@ -1,6 +1,6 @@
 .recipe-div {
-  width: 250px;
-  height: 300px;
+  width: 175px;
+  height: 225px;
   border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
@@ -15,7 +15,7 @@
 }
 
 .list-item-title {
-  font-size: 18px;
+  font-size: 14px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
 .image {
   width: 100%;
   object-fit: cover;
-  height: 200px;
+  height: 125px;
 }
 
 .recipe-options {
@@ -40,17 +40,62 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.8); */
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.popUp-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background-color: white;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+}
+
 .information-container {
-  width: 400px;
-  height: 400px;
+  position: relative;
+  width: 350px;
+  height: 350px;
   background-color: white;
   border-radius: 15px;
   padding: 10px;
+}
+
+.list {
+  list-style: none;
+}
+
+.info-name {
+  text-align: center;
+  color: #ff8063;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.info-title {
+  margin: 8px 0px;
+  font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .recipe-div {
+    width: 200px;
+    height: 250px;
+  }
+  .list-item-title {
+    font-size: 15px;
+    height: 60px;
+  }
+  .image {
+    height: 140px;
+  }
+  .information-container {
+    width: 400px;
+    height: 400px;
+  }
 }

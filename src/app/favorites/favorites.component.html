@@ -10,3 +10,10 @@
     (favoriteEvent)="toggleFavorite(favorite)"
   ></app-recipe>
 </ul>
+
+<p *ngIf="this.favorites.length === 0" class="no-favorites-p">
+  You currently have no favorite recipes. Go to the home page to look through
+  all of our tasty dishes and click the red heart to add to your favorites!
+</p>
+
+<app-footer></app-footer>

@@ -5,8 +5,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px;
-  padding: 5px;
+  margin: 0px 20px;
 }
 
 .nav-item {
@@ -14,4 +13,14 @@ h1 {
   padding: 5px;
   text-decoration: none;
   color: black;
+}
+
+.tab-color {
+  color: #ff8063;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-item {
+    font-size: 18px;
+  }
 }
