@@ -1,10 +1,11 @@
+<app-header></app-header>
 <app-search-criteria
-  (submitEvent)="getAndSetRecipes($event)"
+  (submitEvent)="setFilterObject($event)"
 ></app-search-criteria>
 
 <ul class="recipe-container">
   <app-recipe
-    *ngFor="let favorite of favorites"
+    *ngFor="let favorite of filterFavorites()"
     [recipeRef]="favorite"
     (favoriteEvent)="toggleFavorite(favorite)"
   ></app-recipe>

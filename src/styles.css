@@ -12,3 +12,13 @@ button {
 .red {
   color: red;
 }
+
+body {
+  background: linear-gradient(to right, #ff8063, #fff47d);
+}
+
+.recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
