@@ -1,4 +1,8 @@
-<form #searchForm="ngForm" (ngSubmit)="emitSubmitEvent(searchForm)">
+<form
+  #searchForm="ngForm"
+  (ngSubmit)="emitSubmitEvent(searchForm)"
+  class="search-form"
+>
   <input
     class="input-bar"
     type="text"
@@ -8,16 +12,16 @@
     ngModel
   />
   <label for="diet">Diet Preferences:</label>
-  <select name="diet" id="diet" ngModel>
-    <option value="balanced">Balanced</option>
-    <option value="high-protein">High Protein</option>
-    <option value="low-fat">Low Fat</option>
-    <option value="low-carb">Low Carb</option>
+  <select class="select" name="diet" id="diet" ngModel>
+    <option value="Balanced">Balanced</option>
+    <option value="High-Protein">High Protein</option>
+    <option value="Low-Fat">Low Fat</option>
+    <option value="Low-Carb">Low Carb</option>
   </select>
   <label for="health">Health Preferences:</label>
-  <select name="health" id="health" ngModel>
-    <option value="vegetarian">Vegetarian</option>
-    <option value="vegan">Vegan</option>
+  <select class="select" name="health" id="health" ngModel>
+    <option value="Vegetarian">Vegetarian</option>
+    <option value="Vegan">Vegan</option>
   </select>
-  <button>Submit</button>
+  <button class="submit-button">Submit</button>
 </form>

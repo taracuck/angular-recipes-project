@@ -6,6 +6,7 @@
   box-sizing: border-box;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
   margin: 5px;
+  background-color: white;
 }
 
 .list-item {

@@ -1,0 +1,17 @@
+h1 {
+  font-family: "Homemade Apple", cursive;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+.nav-item {
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+}
