@@ -1,7 +1,19 @@
 <header class="header">
   <h1>Recipes</h1>
   <nav>
-    <a routerLink="/recipe-list" class="nav-item">Home</a>
-    <a routerLink="/favorites" class="nav-item">Favorites</a>
+    <a
+      routerLink="/recipe-list"
+      class="nav-item"
+      (click)="changeClicked('home')"
+      [ngClass]="{ 'tab-color': checkClicked('home') }"
+      >Home</a
+    >
+    <a
+      routerLink="/favorites"
+      class="nav-item"
+      (click)="changeClicked('favorites')"
+      [ngClass]="{ 'tab-color': checkClicked('favorites') }"
+      >Favorites</a
+    >
   </nav>
 </header>

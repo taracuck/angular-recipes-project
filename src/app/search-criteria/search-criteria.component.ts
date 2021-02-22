@@ -16,5 +16,8 @@ export class SearchCriteriaComponent implements OnInit {
   emitSubmitEvent = (form: NgForm): void => {
     console.log(form.form.value);
     this.submitEvent.emit(form.form.value);
+    setTimeout(() => {
+      form.reset();
+    }, 500);
   };
 }

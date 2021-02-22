@@ -2,13 +2,12 @@
   padding: 10px;
   border-radius: 10px;
   border: none;
-  /* border-bottom: 1px solid black; */
 }
 
 .search-form {
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  margin: 5px 15px;
 }
 
 .submit-button {
@@ -19,8 +18,30 @@
   border-radius: 10px;
 }
 
+.select-div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+
 .select {
   padding: 5px;
   border-radius: 5px;
   border: none;
+  margin-left: 5px;
+  width: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .input-bar {
+    width: 50%;
+  }
 }
