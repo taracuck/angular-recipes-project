@@ -9,6 +9,7 @@ import { RecipeService } from '../recipe.service';
 export class RecipeComponent implements OnInit {
   @Input() recipeRef: any;
   recipeCalories!: number;
+  recipeServing!: number;
   recipeLabels!: string[];
   recipeIngredients!: any[];
   showRecipe: boolean = false;
@@ -20,6 +21,7 @@ export class RecipeComponent implements OnInit {
     this.getCalories();
     this.getLabels();
     this.getIngredients();
+    this.calculateServingCalories();
   }
 
   getCalories = () => {
@@ -42,5 +44,9 @@ export class RecipeComponent implements OnInit {
   };
   checkIfFavorite = (recipe: any): boolean => {
     return this.recipeService.checkIfFavorite(recipe);
+  };
+  calculateServingCalories = () => {
+    let recipeYield: number = this.recipeRef.recipe.yield;
+    this.recipeServing = Math.round(this.recipeCalories / recipeYield);
   };
 }

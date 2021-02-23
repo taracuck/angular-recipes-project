@@ -34,6 +34,10 @@
   justify-content: space-between;
 }
 
+.calories-text {
+  font-size: 12;
+}
+
 .popUp {
   position: fixed;
   top: 0;
@@ -73,12 +77,44 @@
   text-align: center;
   color: #ff8063;
   text-decoration: underline;
-  font-size: 20px;
+  font-size: 16.5px;
 }
 
 .info-title {
   margin: 8px 0px;
-  font-size: 18px;
+  font-size: 13.5px;
+}
+
+.info {
+  font-size: 12.5px;
+}
+
+/* tooltip start */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 12px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: 75%;
+  left: -35px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 @media only screen and (min-width: 768px) {
@@ -96,5 +132,16 @@
   .information-container {
     width: 400px;
     height: 400px;
+  }
+  .info-name {
+    font-size: 18px;
+  }
+
+  .info-title {
+    font-size: 15px;
+  }
+
+  .info {
+    font-size: 14px;
   }
 }
