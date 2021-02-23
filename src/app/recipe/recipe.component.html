@@ -3,13 +3,19 @@
     <h2 class="list-item-title">{{ recipeRef.recipe.label }}</h2>
     <img class="image" src="{{ recipeRef.recipe.image }}" />
     <div class="recipe-options">
-      <i
-        class="fas fa-heart"
-        (click)="sendFavoriteEvent(recipeRef)"
-        [ngClass]="{ red: checkIfFavorite(recipeRef) }"
-      ></i>
-      <p>Calories: {{ recipeCalories }}</p>
-      <i class="fas fa-utensils" (click)="setShowRecipe()"></i>
+      <div class="tooltip">
+        <i
+          class="fas fa-heart"
+          (click)="sendFavoriteEvent(recipeRef)"
+          [ngClass]="{ red: checkIfFavorite(recipeRef) }"
+        ></i>
+        <span class="tooltiptext">Add To Favorites</span>
+      </div>
+      <p class="info">Cal/serving: {{ recipeServing }}</p>
+      <div class="tooltip">
+        <i class="fas fa-utensils" (click)="setShowRecipe()"></i>
+        <span class="tooltiptext">See Details</span>
+      </div>
     </div>
   </li>
 </div>
@@ -23,14 +29,22 @@
       <button class="popUp-button" (click)="setShowRecipe()">X</button>
       <h2 class="info-name">{{ recipeRef.recipe.label }}</h2>
       <h3 class="info-title">Diet Labels:</h3>
-      <li *ngFor="let recipeLabel of recipeLabels">{{ recipeLabel }}</li>
+      <li class="info" *ngFor="let recipeLabel of recipeLabels">
+        {{ recipeLabel }}
+      </li>
       <h3 class="info-title">Ingredients:</h3>
-      <li *ngFor="let ingredient of recipeIngredients">
+      <li class="info" *ngFor="let ingredient of recipeIngredients">
         {{ ingredient.text }}
       </li>
+
+      <h3 class="info-title">Number of Servings</h3>
+      <li class="info">{{ recipeRef.recipe.yield }}</li>
+
       <h3 class="info-title">Source:</h3>
       <li>
-        <a href="{{ recipeRef.recipe.url }}">{{ recipeRef.recipe.url }}</a>
+        <a class="info" href="{{ recipeRef.recipe.url }}">{{
+          recipeRef.recipe.url
+        }}</a>
       </li>
     </ul>
   </div>

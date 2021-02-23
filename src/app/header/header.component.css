@@ -1,11 +1,16 @@
 h1 {
-  font-family: "Homemade Apple", cursive;
+  font-family: "Allura", cursive;
 }
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0px 20px;
+}
+
+.header-image {
+  width: 200px;
+  background-color: transparent;
 }
 
 .nav-item {
