@@ -17,6 +17,10 @@ body {
   overflow-y: scroll;
 }
 
+html {
+  height: 100%;
+}
+
 .red {
   color: red;
 }
@@ -25,5 +29,5 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
-  padding-bottom: 40px;
+  padding-bottom: 45px;
 }

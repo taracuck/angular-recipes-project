@@ -1,31 +1,37 @@
-<form
-  #searchForm="ngForm"
-  (ngSubmit)="emitSubmitEvent(searchForm)"
-  class="search-form"
->
-  <input
-    class="input-bar"
-    type="text"
-    name="searchTerm"
-    id="searchTerm"
-    placeholder="Enter a search term"
-    ngModel
-  />
-  <div class="select-div">
-    <label for="diet">Diet Preferences:</label>
-    <select class="select" name="diet" id="diet" ngModel>
-      <option value="balanced">Balanced</option>
-      <option value="high-protein">High Protein</option>
-      <option value="low-fat">Low Fat</option>
-      <option value="low-carb">Low Carb</option>
-    </select>
-  </div>
-  <div class="select-div">
-    <label for="health">Health Preferences:</label>
-    <select class="select" name="health" id="health" ngModel>
-      <option value="Vegetarian">Vegetarian</option>
-      <option value="Vegan">Vegan</option>
-    </select>
-  </div>
-  <button class="submit-button">Submit</button>
-</form>
+<div class="search-image">
+  <form
+    #searchForm="ngForm"
+    class="search-form"
+    (ngSubmit)="emitSubmitEvent(searchForm)"
+  >
+    <div class="input">
+      <i class="fas fa-search"></i>
+      <input
+        class="input-bar"
+        type="text"
+        name="searchTerm"
+        id="searchTerm"
+        placeholder="Enter a search term..."
+        ngModel
+      />
+    </div>
+
+    <div class="select-div">
+      <label for="diet" class="label diet">Diet Preferences:</label>
+      <select class="select" name="diet" id="diet" ngModel>
+        <option value="balanced">Balanced</option>
+        <option value="high-protein">High Protein</option>
+        <option value="low-fat">Low Fat</option>
+        <option value="low-carb">Low Carb</option>
+      </select>
+    </div>
+    <div class="select-div">
+      <label for="health" class="label">Health Preferences:</label>
+      <select class="select" name="health" id="health" ngModel>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Vegan">Vegan</option>
+      </select>
+    </div>
+    <button class="submit-button">Submit</button>
+  </form>
+</div>
