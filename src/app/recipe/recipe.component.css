@@ -98,7 +98,7 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 100px;
+  width: 80px;
   color: black;
   text-align: center;
   padding: 5px 0;
