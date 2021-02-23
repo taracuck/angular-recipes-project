@@ -9,7 +9,12 @@
           (click)="sendFavoriteEvent(recipeRef)"
           [ngClass]="{ red: checkIfFavorite(recipeRef) }"
         ></i>
-        <span class="tooltiptext">Add To Favorites</span>
+        <span *ngIf="!checkIfFavorite(recipeRef)" class="tooltiptext"
+          >Add To Favorites</span
+        >
+        <span *ngIf="checkIfFavorite(recipeRef)" class="tooltiptext"
+          >Remove From Favorites</span
+        >
       </div>
       <p class="info">Cal/serving: {{ recipeServing }}</p>
       <div class="tooltip">

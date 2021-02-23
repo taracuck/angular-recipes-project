@@ -4,21 +4,17 @@ h2,
 h3,
 p,
 ul,
-button {
+button,
+body {
   margin: 0;
   padding: 0;
   font-family: "PT Serif", serif;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   background: linear-gradient(to right, #ff8063, #fff47d);
-  margin: 10px;
-  padding: 0;
-  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .red {
@@ -28,4 +24,6 @@ body {
 .recipe-container {
   display: flex;
   flex-wrap: wrap;
+  margin: 10px;
+  padding-bottom: 40px;
 }
