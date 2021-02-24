@@ -1,7 +1,12 @@
 <div class="recipe-div">
   <li class="list-item">
     <h2 class="list-item-title">{{ recipeRef.recipe.label }}</h2>
-    <img class="image" src="{{ recipeRef.recipe.image }}" />
+    <img
+      class="image"
+      src="{{ recipeRef.recipe.image }}"
+      alt="Image of {{ recipeRef.recipe.label }}"
+      onerror="this.onerror=null;this.src='assets/no-image-found.png';"
+    />
     <div class="recipe-options">
       <div class="tooltip">
         <i
